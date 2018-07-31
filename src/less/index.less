@@ -39,31 +39,101 @@ ul{
     visibility: hidden;
 }
 @media only screen and(max-width:320px){
-    section{
-        &:nth-of-type(3){
-            .project_wrap{
-                width:90%!important;
-                .project_scroll_wrap{
-                    
-                    .project_item{
-                        // width:300px!important;
-                        .project_item_pic{
-                            height:200px!important;
+    *{
+        font-size:14px!important;
+        .wrap{
+        
+        .header{
+            .header_nav{
+                display: none!important;
+            }
+            .header_more{
+                display:block!important;
+            }
+        }
+    }
+
+    .section_wrap{
+        section{
+             box-sizing: border-box!important;
+                padding-top:70px!important;
+                &:nth-of-type(1){
+                    .introduce_wrap{
+                       
+                        .author{
+                            width:100px!important;
+                            height:100px!important;
                         }
-                        .project_item_detail{
-                            height:150px!important;
+                        .introduce_word{
+                            margin-top:20px!important;
                         }
-                        // .project_item_link{
-                        //     a{
-                        //         width:150px!important;
+                    }
+                }
+                &:nth-of-type(2){
+                    .skill_wrap{
+                        padding:0px!important;
+                        .skill_item{
+                            margin-bottom:20px!important;
+                            border:none!important;
+                            i{
+                                font-size:30px!important;
+                            }
+                        }
+                        .other_skill{
+                            h3{
+                                font-size:16px!important;
+                                margin:20px 0!important;
+                            }
+                            .other_skill_icon{
+                                font-size:0!important;
+                                .other_skill_icon_item{
+                                    width:25%!important;
+                                    margin:0px!important;
+                                    text-align: center!important;
+                                    div{
+                                        width:100%!important;
+                                        i{
+                                            font-size:25px!important;
+                                        }
+                                    }
+                                    p{
+                                        display: none!important;
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            &:nth-of-type(3){
+                .project_wrap{
+                    width:90%!important;
+                    .project_scroll_wrap{
                         
-                        //     } 
-                        // }
+                        .project_item{
+                            // width:300px!important;
+                            .project_item_pic{
+                                height:200px!important;
+                            }
+                            .project_item_detail{
+                                height:150px!important;
+                            }
+                            // .project_item_link{
+                            //     a{
+                            //         width:150px!important;
+                            
+                            //     } 
+                            // }
+                        }
                     }
                 }
             }
         }
     }
+}
+       
+    
+    
 }
 
 @media only screen and(min-width:320px)and (max-width: 768px) {
@@ -443,7 +513,7 @@ ul{
                         float:left;
                         width:300px;
                         margin-right:50px;
-                        padding:20px 0;
+                        padding:20px 0px;
                         // background-color: #fff;
                     .project_item_pic{
                         height:300px;
@@ -655,8 +725,3 @@ ul{
     from{transform:translate3d(0,500px,0)}
     to{transform:translate3d(0,0,0)}
 }
-
-
-
-
-
