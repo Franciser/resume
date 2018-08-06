@@ -119,7 +119,15 @@ window.addEventListener('load',function(){
             case 2:
                 for(var j=0;j<project_imgs.length;j++){
                     project_imgs[j].src=project_img_arr[j];
+                    (
+                        function(j){
+                            project_imgs[j].addEventListener('load',function(){
+                                this.style.opacity='1';
+                            })
+                        }
+                    )(j)
                 }
+
         }
         section_wrap.style.transform = "translate3d(0," + (-nowIndex) * (100 / length) + "%,0)"
         setTimeout(function () {
