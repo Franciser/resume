@@ -111,7 +111,7 @@ window.addEventListener('load',function(){
             case 1:
                 for (var i = 0; i < page_1_icons.length; i++) {
                     page_1_icons[i].style.animation = "icon_fromLeft 2s ease both ." + i + "s"
-                    page_1_details[i].style.animation = "skill_opaciy 2s ease both 2." + i + "s"
+                    page_1_details[i].style.animation = "icon_fromLeft 2s ease both ." + i + "s,"+"skill_opaciy 2s ease both 2." + i + "s"
 
                 }
                 page_1_otherSkill.style.animation = "other_skill 1s ease both 1.5s"
@@ -156,7 +156,8 @@ window.addEventListener('load',function(){
         document.querySelector('.loading').style.transform = "translateY(-100%)";
         setTimeout(function () {
             document.querySelector('.loading').style.display = "none";
-            author.style.animation ="author_scale 2s ease both,author_shadow 2s ease infinite alternate"
+            // author.style.animation ="author_scale 2s ease both,author_shadow 2s ease infinite alternate"
+            author.style.animation ="author_scale 2s ease both"
             introduce_word.style.animation ="introduce_scale 1s ease both 1s"
             for(var i=0;i<introduce_details.length;i++){
                 introduce_details[i].style.animation ="authorWord_opacity 2s ease both, authorWord_toTop 2s ease 1."+i*2+"s both"
