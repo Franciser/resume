@@ -34,12 +34,12 @@ window.addEventListener('load',function(){
     //滚轮滚动切换页面
     function wheelPage_fn(){
         window.addEventListener('mousewheel', function (e) {
-            
             if (isMoving) {
                 return
             }
 
             if (e.wheelDelta < 0) {
+                // alert("小于")
                 isMoving = true;
                 nowIndex++;
                 if(nowIndex>=length-1){
@@ -48,6 +48,7 @@ window.addEventListener('load',function(){
                 scrollPage_fn();
             }
             else if (e.wheelDelta > 0) {
+                // alert("大于")
                 isMoving = true;
                 nowIndex--;
                 if (nowIndex <=0) {
@@ -99,11 +100,31 @@ window.addEventListener('load',function(){
     //改变导航样式
     function setNav_fn() {
         for (var i = 0; i < nav_items.length; i++) {
-            nav_items[i].classList.remove('nav_active')
-            more_nav_items[i].classList.remove('nav_active')
+            if(nav_items[i].classList){
+                nav_items[i].classList.remove('nav_active')
+                more_nav_items[i].classList.remove('nav_active')
+            }else{
+                // nav_items[i].className=''
+                // more_nav_items[i].className=''
+
+                classList_fn(nav_items[i],'nav_active','remove')
+                classList_fn(more_nav_items[i],'nav_active','remove')
+            }
+           
         }
-        nav_items[nowIndex].classList.add('nav_active')
-        more_nav_items[nowIndex].classList.add('nav_active')
+        
+
+        if (nav_items[nowIndex].classList) {
+            nav_items[nowIndex].classList.add('nav_active')
+            more_nav_items[nowIndex].classList.add('nav_active')
+        } else {
+            // nav_items[nowIndex].className='nav_active'
+            // more_nav_items[nowIndex].className='nav_active'
+
+            classList_fn(nav_items[nowIndex], 'nav_active', 'add')
+            classList_fn(more_nav_items[nowIndex], 'nav_active', 'add')
+        }
+        
     }
     //页面滚动函数
     function scrollPage_fn(){
@@ -144,8 +165,18 @@ window.addEventListener('load',function(){
                     project_scroll_wrap.style.transform = "translateX(" + -350 *i+"px)"
                     lastIndex=nowIndex;
                     nowIndex=i;
-                    points[lastIndex].classList.remove('point_active');
-                    this.classList.add('point_active');
+                   
+
+                    if(points[lastIndex].classList){
+                        points[lastIndex].classList.remove('point_active');
+                        this.classList.add('point_active');
+                    }else{
+                        // points[lastIndex].className='';
+                        // this.className='point_active';
+                        
+                        classList_fn(points[lastIndex],"point_active","remove")
+                        classList_fn(this,"point_active","add")
+                    }
                     
                 })
             })(i)
@@ -180,3 +211,33 @@ window.addEventListener('load',function(){
         })
     }
 })
+
+//className增删函数
+function classList_fn(node, value, type) {
+    if (node.className) {
+
+        var arr = node.className.split(" ");
+    } else {
+        arr = []
+    }
+
+    var hasIn = arr.some(function (item, index) {
+        return item === value
+    })
+    switch (type) {
+        case "add":
+            if (!hasIn) {
+                arr.push(value)
+            } else {
+
+            }
+        case "remove":
+            if (!hasIn) {
+
+            } else {
+                arr.splice(arr.indexOf(value), 1)
+            }
+    }
+
+    node.className = arr.join(' ')
+}
