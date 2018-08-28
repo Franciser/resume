@@ -22,7 +22,7 @@ window.addEventListener('load',function(){
     var length=sections.length;
     var nowIndex=0;
     var isMoving=false;
-    var project_img_arr = [require("../img/project_01.jpg"), require("../img/project_02.jpg"), require("../img/project_03.jpg"), require("../img/project_04.jpg"), require("../img/project_05.jpg"), require("../img/project_06.jpg")]
+    var project_img_arr = [require("../img/project_01.jpg"), require("../img/project_05.jpg"), require("../img/project_02.jpg"), require("../img/project_03.jpg"), require("../img/project_04.jpg"), require("../img/project_06.jpg")]
 
     
     loading_fn();
